@@ -24,7 +24,7 @@ class JS(Package):
         wscript = self.get_path("wscript.exe")
         ext = os.path.splitext(path)[-1].lower()
         if ext not in (".js", ".jse"):
-            if ext == ".jse" or os.path.isfile(path) and open(path, "rt").read(4) == "#@~^":
+            if ext == ".jse" or os.path.isfile(path) and open(path, "rb").read(4) == b"#@~^":
                 if ext != ".jse":
                     os.rename(path, f"{path}.jse")
                     path = f"{path}.jse"
